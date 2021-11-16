@@ -12,6 +12,5 @@ class Project(models.Model):
     link = models.CharField(max_length=512)
     image = models.ImageField(upload_to="projects/")
 
-
     def __str__(self):
         return self.name.capitalize()
