@@ -1,0 +1,386 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section id="hero">
+        <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+            <h1>Plan. Launch. Grow.</h1>
+            <h2>Welcome to my portfolio page</h2>
+            <div class="d-flex">
+                <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row justify-content-end">
+                    <div class="col-lg-11">
+                        <div class="row justify-content-end">
+
+                            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-emoji-smile"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="130"
+                                          data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Happy Clients</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-journal-richtext"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="{{ total_projects }}"
+                                          data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Projects</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-clock"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="3"
+                                          data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Years of experience</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-award"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="2"
+                                          data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Awards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="{% static 'img/about.jpg' %}" class="img-fluid">
+                    </div>
+
+                    <div class="col-lg-6 pt-3 pt-lg-0 content">
+                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                        <p class="fst-italic">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore
+                            magna aliqua.
+                        </p>
+                        <ul>
+                            <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.
+                            </li>
+                            <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate
+                                velit.
+                            </li>
+                            <li><i class="bx bx-check-double"></i> Voluptate repellendus pariatur reprehenderit corporis
+                                sint.
+                            </li>
+                            <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda
+                                mastiro dolore eu fugiat nulla pariatur.
+                            </li>
+                        </ul>
+                        <p>
+                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in
+                            culpa qui officia deserunt mollit anim id est laborum
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Portfolio</h2>
+                    <p>Check my Projects</p>
+                </div>
+
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            {% for category in category_list %}
+                                <li data-filter=".filter-{{ category }}">{{ category }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                    {% for project in project_list %}
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.category }}">
+                            <img src="{{ project.image.url }}" class="img-fluid" alt="{{ project.title }}">
+                            <div class="portfolio-info">
+                                <h4>{{ project.name }}</h4>
+                                <p>{{ project.description }}</p>
+                                {% if project.link %}
+                                    <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"><i
+                                            class="bx bx-link"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section><!-- End Portfolio Section -->
+        <!-- ======= Features Section ======= -->
+        <section id="skills" class="features">
+            <div class="container" data-aos="fade-up">
+
+                <ul class="nav nav-tabs row d-flex">
+                    <li class="nav-item col-4">
+                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                            <i class="ri-gps-line"></i>
+                            <h4 class="d-none d-lg-block">Modi sit est dela pireda nest</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-4">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                            <i class="ri-body-scan-line"></i>
+                            <h4 class="d-none d-lg-block">Unde praesenti mara setra le</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-4">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+                            <i class="ri-sun-line"></i>
+                            <h4 class="d-none d-lg-block">Pariatur explica nitro dela</h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                                <p class="fst-italic">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.
+                                </p>
+                                <ul>
+                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
+                                        voluptate velit.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
+                                        storacalaperda mastiro dolore eu fugiat nulla pariatur.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                    reprehenderit in voluptate
+                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                    non proident, sunt in
+                                    culpa qui officia deserunt mollit anim id est laborum
+                                </p>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="{% static 'img/features-1.png' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
+                                <p>
+                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                    reprehenderit in voluptate
+                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                    non proident, sunt in
+                                    culpa qui officia deserunt mollit anim id est laborum
+                                </p>
+                                <p class="fst-italic">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.
+                                </p>
+                                <ul>
+                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
+                                        voluptate velit.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores
+                                        dolores quos qui a. Ipsum neque dolor voluptate nisi sed.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
+                                        storacalaperda mastiro dolore eu fugiat nulla pariatur.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="{% static 'img/features-2.png' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-3">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                                <p>
+                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                    reprehenderit in voluptate
+                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                    non proident, sunt in
+                                    culpa qui officia deserunt mollit anim id est laborum
+                                </p>
+                                <ul>
+                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
+                                        voluptate velit.
+                                    </li>
+                                    <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores
+                                        dolores quos qui a. Ipsum neque dolor voluptate nisi sed.
+                                    </li>
+                                </ul>
+                                <p class="fst-italic">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.
+                                </p>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="{% static 'img/features-3.png' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Features Section -->
+
+
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class=" section-title">
+                    <h2>Contact</h2>
+                    <p>Contact me</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="mailto:zolotoverkhdenis@gmail.com">
+                                    <div class="info-box">
+                                        <i class="bx bx-envelope"></i>
+                                        <h3>Email</h3>
+                                        <p>zolotoverkhdenis@gmail.com</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="https://t.me/denis_zol">
+                                    <div class="info-box">
+                                        <i class="bx bxl-telegram"></i>
+                                        <h3>Telegram</h3>
+                                        <p>@denis_zol</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="tel:+380685210824">
+                                    <div class="info-box mt-4">
+                                        <i class="bx bx-phone-call"></i>
+                                        <h3>Phone</h3>
+                                        <p>+380 68 521 0824</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 nav-link">
+                                <a href="https://github.com/denis-source" target="_blank">
+                                    <div class="info-box mt-4">
+                                        <i class="bx bxl-github"></i>
+                                        <h3>GitHub</h3>
+                                        <p>denis-source</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 nav-link">
+                                <a href="https://us04web.zoom.us/j/6358991895?pwd=YjRkaWhYWkVVbkZRT2JyZCtzOHU3dz09"
+                                   target="_blank">
+                                    <div class="info-box mt-4">
+                                        <i class="bx bxl-zoom"></i>
+                                        <h3>Zoom</h3>
+                                        <p>635 899 1895</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 nav-link">
+                                <a href="https://www.linkedin.com/in/denis-zolotoverkh-a2a0b419a/" target="_blank">
+                                    <div class="info-box mt-4">
+                                        <i class="bx bxl-linkedin"></i>
+                                        <h3>LinkedIn</h3>
+                                        <p>denis-zolotoverkh</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <form action="/" method="POST" role="form" class="php-email-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name"
+                                           placeholder="Your Name"
+                                           required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email"
+                                           placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject"
+                                       placeholder="Subject"
+                                       required>
+                            </div>
+                            <div class="form-group mt-3">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                                      required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Contact Section -->
+    </main>
+{% endblock %}
