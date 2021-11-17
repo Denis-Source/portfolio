@@ -2,7 +2,7 @@ from django.views.generic import FormView, TemplateView
 from projects.models import Project
 from category.models import Category
 from homepage.forms import ContactForm
-from homepage.bot import send_form
+from homepage.bot import send_form_threaded
 
 
 class HomePageView(FormView):
@@ -24,7 +24,7 @@ class HomePageView(FormView):
                 "message": form.cleaned_data["message"],
             }
             message = "\n".join(body.values())
-            send_form(subject, message)
+            send_form_threaded(subject, message)
         return super(HomePageView, self).form_valid(form)
 
 
