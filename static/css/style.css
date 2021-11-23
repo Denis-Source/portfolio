@@ -1660,3 +1660,18 @@ section {
 #footer .credits a {
     transition: 0.3s;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ff4a17;
+}
