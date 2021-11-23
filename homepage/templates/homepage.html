@@ -62,7 +62,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="{% static 'img/about.jpg' %}" class="img-fluid">
+                        <img src="{% static 'img/about.png' %}" class="img-fluid">
                     </div>
 
                     <div class="col-lg-6 pt-3 pt-lg-0 content">
@@ -125,10 +125,12 @@
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.category }}">
                             <img src="{{ project.image.url }}" class="img-fluid" alt="{{ project.title }}">
                             <div class="portfolio-info">
-                                <h4>{{ project.name }}</h4>
+                                <h4>{{ project.name }}</h4>Neque exercitationem debitis soluta quos debitis quo mollitia
+                                officia est
                                 <p>{{ project.description }}</p>
                                 {% if project.link %}
-                                    <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"><i
+                                    <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"
+                                       target="_blank"><i
                                             class="bx bx-link"></i></a>
                                 {% endif %}
                             </div>
@@ -145,19 +147,19 @@
                 <ul class="nav nav-tabs row d-flex">
                     <li class="nav-item col-4">
                         <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
-                            <i class="ri-gps-line"></i>
+                            <i class="ri-terminal-line"></i>
                             <h4 class="d-none d-lg-block">Modi sit est dela pireda nest</h4>
                         </a>
                     </li>
                     <li class="nav-item col-4">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
-                            <i class="ri-body-scan-line"></i>
+                            <i class="ri-bank-line"></i>
                             <h4 class="d-none d-lg-block">Unde praesenti mara setra le</h4>
                         </a>
                     </li>
                     <li class="nav-item col-4">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
-                            <i class="ri-sun-line"></i>
+                            <i class="ri-briefcase-4-line"></i>
                             <h4 class="d-none d-lg-block">Pariatur explica nitro dela</h4>
                         </a>
                     </li>
@@ -173,17 +175,12 @@
                                     incididunt ut labore et dolore
                                     magna aliqua.
                                 </p>
+                                <p>Skills:</p>
                                 <ul>
-                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
-                                        voluptate velit.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                        storacalaperda mastiro dolore eu fugiat nulla pariatur.
-                                    </li>
+                                    {% for skill in skill_list %}
+                                        <li><i class="ri-check-double-line"></i> {{ skill.name }}
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                                 <p>
                                     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -194,7 +191,7 @@
                                 </p>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{% static 'img/features-1.png' %}" alt="" class="img-fluid">
+                                <img src="{% static 'img/features-skills.png' %}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -231,40 +228,27 @@
                                 </ul>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{% static 'img/features-2.png' %}" alt="" class="img-fluid">
+                                <img src="{% static 'img/features-teaching.png' %}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-3">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <h3>Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                                <h3>Certification</h3>
                                 <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                    reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                    non proident, sunt in
-                                    culpa qui officia deserunt mollit anim id est laborum
+                                    Certificates:
                                 </p>
                                 <ul>
-                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
-                                        voluptate velit.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores
-                                        dolores quos qui a. Ipsum neque dolor voluptate nisi sed.
-                                    </li>
+                                    {% for certificate in certificate_list %}
+                                        <li><i class="ri-check-double-line"></i> {{ certificate.authority }} <a
+                                                href="{{ certificate.link }}" target="_blank"> {{ certificate.name }}
+                                        </a></li>
+                                    {% endfor %}
                                 </ul>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{% static 'img/features-3.png' %}" alt="" class="img-fluid">
+                                <img src="{% static 'img/features-certificates.png' %}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

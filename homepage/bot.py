@@ -1,13 +1,17 @@
-from telebot import TeleBot
 from django.conf import settings
+import requests
 from threading import Thread
-
-bot = TeleBot(settings.BOT_TOKEN)
 
 
 def send_form(subject, message):
-    bot.send_message(settings.BOT_REC_ID, subject)
-    bot.send_message(settings.BOT_REC_ID, message)
+    telegram_url = f"https://api.telegram.org" \
+                   f"/bot" \
+                   f"{settings.BOT_TOKEN}" \
+                   f"/sendMessage"
+
+    data = {"chat_id": settings.BOT_REC_ID,
+            "text": f"{subject}\n\n{message}"}
+    requests.post(url=telegram_url, data=data)
 
 
 def send_form_threaded(subject, message):
