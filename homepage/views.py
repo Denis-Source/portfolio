@@ -3,6 +3,7 @@ from projects.models import Project
 from category.models import Category
 
 from certificate.models import Certificate
+from discipline.models import Discipline
 from skill.models import Skill
 
 from homepage.forms import ContactForm
@@ -15,8 +16,9 @@ class HomePageView(FormView):
     success_url = "/success"
 
     def get_context_data(self, **kwargs):
-        data = {"project_list": Project.objects.all(), "category_list": Category.objects.all(),
-                "certificate_list": Certificate.objects.all(), "skill_list": Skill.objects.all(),
+        data = {"project_list": Project.objects.all().order_by("-priority"), "category_list": Category.objects.all(),
+                "certificate_list": Certificate.objects.all(), "discipline_list": Discipline.objects.all(),
+                "skill_list": Skill.objects.all(),
                 "total_projects": len(Project.objects.all())}
         return data
 

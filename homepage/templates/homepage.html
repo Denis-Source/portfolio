@@ -126,12 +126,12 @@
                             <img src="{{ project.image.url }}" class="img-fluid" alt="{{ project.title }}">
                             <div class="portfolio-info">
                                 <h4>{{ project.name }}
-                                <p>{{ project.description }}</p>
-                                {% if project.link %}
-                                    <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"
-                                       target="_blank"><i
-                                            class="bx bx-link"></i></a>
-                                {% endif %}
+                                    <p>{{ project.description }}</p>
+                                    {% if project.link %}
+                                        <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"
+                                           target="_blank"><i
+                                                class="bx bx-link"></i></a>
+                                    {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -205,26 +205,18 @@
                                     non proident, sunt in
                                     culpa qui officia deserunt mollit anim id est laborum
                                 </p>
+                                <p>Disciplines:</p>
+                                <ul>
+                                    {% for discipline in discipline_list %}
+                                        <li><i class="ri-check-double-line"></i> {{ discipline.name }}<a href=""></a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
                                 <p class="fst-italic">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore et dolore
                                     magna aliqua.
                                 </p>
-                                <ul>
-                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
-                                        voluptate velit.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores
-                                        dolores quos qui a. Ipsum neque dolor voluptate nisi sed.
-                                    </li>
-                                    <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                        storacalaperda mastiro dolore eu fugiat nulla pariatur.
-                                    </li>
-                                </ul>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
                                 <img src="{% static 'img/features-teaching.png' %}" alt="" class="img-fluid">
