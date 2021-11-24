@@ -16,10 +16,11 @@ class HomePageView(FormView):
     success_url = "/success"
 
     def get_context_data(self, **kwargs):
-        data = {"project_list": Project.objects.all().order_by("-priority"), "category_list": Category.objects.all(),
-                "certificate_list": Certificate.objects.all(), "discipline_list": Discipline.objects.all(),
-                "skill_list": Skill.objects.all(),
-                "total_projects": len(Project.objects.all())}
+        data = {"project_list": Project.objects.all().order_by("-priority"),
+                "category_list": Category.objects.all().order_by("-priority"),
+                "certificate_list": Certificate.objects.all().order_by("-priority"),
+                "discipline_list": Discipline.objects.all().order_by("-priority"),
+                "skill_list": Skill.objects.all().order_by("-priority")}
         return data
 
     def form_valid(self, form):
