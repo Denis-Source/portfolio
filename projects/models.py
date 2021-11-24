@@ -11,6 +11,7 @@ class Project(models.Model):
     category = models.ForeignKey(Category, related_name="category", on_delete=models.CASCADE)
     link = models.CharField(max_length=512)
     image = models.ImageField(upload_to="projects/")
+    is_complete = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name.capitalize()
