@@ -145,8 +145,13 @@
                                 <h3>Informal education courses certifications</h3>
                                 <ul>
                                     {% for certificate in certificate_list %}
-                                        <li><i class="bx bx-check-double"></i>({{ certificate.authority }})<a
-                                                href="{{ certificate.file }}" target="_blank"> {{ certificate.name }}
+                                        <li><i class="bx bx-check-double"></i>({{ certificate.authority }})<a href="
+                                            {% if certificate.file %}
+                                                {{ certificate.file }}
+                                            {% elif certificate.link %}
+                                                {{ certificate.link }}
+                                            {% endif %}
+                                        " target="_blank"> {{ certificate.name }}
                                         </a></li>
                                     {% endfor %}
                                 </ul>
