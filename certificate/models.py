@@ -6,8 +6,7 @@ class Certificate(models.Model):
     priority = models.IntegerField()
 
     authority = models.CharField(max_length=64, blank=True, null=True)
-    link = models.CharField(max_length=512, blank=True, null=True)
-    download_link = models.CharField(max_length=512, blank=True, null=True)
+    file = models.FileField(upload_to="certificates/", blank=True, null=True)
 
     def __str__(self):
         return self.name.capitalize()
