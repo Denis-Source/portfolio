@@ -11,7 +11,6 @@
         </div>
     </section><!-- End Hero -->
 
-
     <main id="main">
         <!-- ======= Skills Section ======= -->
         <section id="skills" class="features">
@@ -22,24 +21,28 @@
                 </div>
 
                 <ul class="nav nav-tabs row d-flex">
+                    <!-- Education Tab Button -->
                     <li class="nav-item col-3">
                         <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
                             <i class="ri-bank-line"></i>
                             <h4 class="d-none d-lg-block">Education</h4>
                         </a>
                     </li>
+                    <!-- Experience Tab Button -->
                     <li class="nav-item col-3">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
                             <i class="ri-briefcase-4-line"></i>
                             <h4 class="d-none d-lg-block">Experience</h4>
                         </a>
                     </li>
+                    <!-- Competence Tab Button -->
                     <li class="nav-item col-3">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
                             <i class="ri-terminal-line"></i>
                             <h4 class="d-none d-lg-block">Competence</h4>
                         </a>
                     </li>
+                    <!-- Certification Tab Button -->
                     <li class="nav-item col-3">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
                             <i class="ri-book-mark-line"></i>
@@ -49,6 +52,7 @@
                 </ul>
 
                 <div class="tab-content">
+                    <!-- Education Tab Button -->
                     <div class="tab-pane active show" id="tab-1">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
@@ -88,6 +92,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Experience Tab Button -->
                     <div class="tab-pane" id="tab-2">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
@@ -127,6 +132,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Competence Tab Button -->
                     <div class="tab-pane" id="tab-3">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
@@ -143,6 +149,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Certification Tab Button -->
                     <div class="tab-pane" id="tab-4">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
@@ -166,18 +173,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section><!-- End Features Section -->
         <!-- ======= Portfolio Section ======= -->
         <section id="portfolio" class="portfolio">
             <div class="container" data-aos="fade-up">
-
                 <div class="section-title">
                     <h2>Portfolio</h2>
                     <p>My Projects</p>
                 </div>
-
+                <!-- Portfolio categories filter buttons -->
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
@@ -188,9 +193,8 @@
                         </ul>
                     </div>
                 </div>
-
+                <!-- Project list -->
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
                     {% for project in project_list %}
                         <div class="col-lg-3 col-md-6 portfolio-item filter-{{ project.category }}">
                             <img src="{{ project.image.url }}" class="img-fluid" alt="{{ project.title }}">
@@ -202,6 +206,7 @@
                                            target="_blank"><i
                                                 class="bx bx-link"></i></a>
                                     {% endif %}
+                                </h4>
                             </div>
                         </div>
                     {% endfor %}
@@ -209,18 +214,16 @@
                 </div>
             </div>
         </section><!-- End Portfolio Section -->
+        <!-- ======= Contacts Section ======= -->
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
-
                 <div class=" section-title">
                     <h2>Contact</h2>
                     <p>Contact me</p>
                 </div>
-
                 <div class="row">
-
+                    <!-- Contact cards -->
                     <div class="col-lg-6">
-
                         <div class="row">
                             <div class="col-md-6">
                                 <a href="mailto:zolotoverkhdenis@gmail.com">
@@ -278,9 +281,8 @@
                                 </a>
                             </div>
                         </div>
-
                     </div>
-
+                    <!-- Contact form -->
                     <div class="col-lg-6 mt-4 mt-lg-0">
                         <form action="/" method="POST" role="form" class="php-email-form mt-4">
                             {% csrf_token %}

@@ -2,6 +2,16 @@ from django import forms
 
 
 class ContactForm(forms.Form):
+    """
+    Contact form
+    Consists of the following fields:
+        Name
+        Email
+        Subject
+        Message
+    Uses custom classes
+    No labels
+    """
     class Meta:
         fields = ["name", "email", "subject", "message"]
 
