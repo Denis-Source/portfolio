@@ -196,21 +196,24 @@
                 <!-- Project list -->
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                     {% for project in project_list %}
+                        {% if project.link %}
+                            <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"
+                               target="_blank">
+                        {% endif %}
+
                         <div class="col-lg-3 col-md-6 portfolio-item filter-{{ project.category }}">
                             <img src="{{ project.image.url }}" class="img-fluid" alt="{{ project.title }}">
                             <div class="portfolio-info">
                                 <h4>{{ project.name }}
                                     <p>{{ project.description }}</p>
-                                    {% if project.link %}
-                                        <a href="{{ project.link }}" class="details-link" title="{{ project.link }}"
-                                           target="_blank"><i
-                                                class="bx bx-link"></i></a>
-                                    {% endif %}
+
                                 </h4>
                             </div>
                         </div>
+                        {% if project.link %}
+                            </a>
+                        {% endif %}
                     {% endfor %}
-::qa
                 </div>
             </div>
         </section><!-- End Portfolio Section -->
