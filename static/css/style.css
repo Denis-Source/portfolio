@@ -113,8 +113,14 @@ h1, h2, h3, h4, h5, h6 {
     [data-aos-delay] {
         transition-delay: 0 !important;
     }
+
+    #main {
+        margin: auto;
+        max-width: 90%;
+    }
+
     .portfolio-container {
-        max-width: 65%;
+        max-width: 70%;
         margin: auto;
     }
 }
